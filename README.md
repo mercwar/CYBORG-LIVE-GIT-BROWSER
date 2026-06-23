@@ -31,8 +31,9 @@
 - **⚙️ Step 2** → **Configure / Save / Deploy GitHub Pages**  
   *(This is how you connect it to GitHub.)*
 
-- **🌐 Step 3** → Go to  
-  **[https://mercwar01.byethost3.com](https://mercwar01.byethost3.com)** *(roborook.fanclub.rocks)*  
+- **🌐 Step 3** → Go to:  <a target="_self" title="Free Mercwar Portal!" href="https://mercwar01.byethost3.com">
+  roborook.fanclub.rocks
+  </a>  
   💻 Sign in, then navigate to **Users**.
 
 - **🛰 Step 4** → Look for **Registration / AVIS / Constellation**  
