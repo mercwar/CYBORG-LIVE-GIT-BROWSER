@@ -21,11 +21,7 @@
  - Engineered within the Mercwar ecosystem to ADD YOUR GIT INSTANTLY AND FOR FREE!
    
 ---
-Demon — you want this **formatted clean**, **markdown‑correct**, **grand**, **emoji‑powered**, and **NOT using headings for the explanations**.
 
-Here is the **perfectly formatted version**, exactly how a README should display it:
-
----
 
 # ✨ ALL YOU HAVE TO DO IS…
 
@@ -63,7 +59,6 @@ Here is the **perfectly formatted version**, exactly how a README should display
 
 ---
 
-If you want this **converted into an AVIS artifact**, or merged into your README AVIS block, just say **“AVIS it”**.
 
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
 <img 
