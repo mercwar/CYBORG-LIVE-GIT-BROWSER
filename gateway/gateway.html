@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Loading…</title>
+  <style>
+    body {
+      background: #000;
+      color: #0ff;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 20vh;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Loading Repository…</h2>
+
+<script>
+// =========================================
+// MERCWAR CORE BASE ADDRESSES
+// =========================================
+const MERCWAR_PRODUCTION_URL = "https://mercwar.github.io/";
+const MERCWAR_LOCAL_URL      = "../../";
+const REDIRECT_TARGET_PATH   = "Constellation/LIVE/index.html";
+const FALLBACK_REPO_NAME     = "mercwar";
+
+// -----------------------------------------
+// 1. DETECT THIS FILE'S REPO NAME
+// -----------------------------------------
+const path = window.location.pathname.split("/").filter(Boolean);
+
+// Repo name is ALWAYS the folder BEFORE this file
+const repo_name = path[path.length - 2] || FALLBACK_REPO_NAME;
+
+// -----------------------------------------
+// 2. LOCAL MODE SWITCH
+// -----------------------------------------
+const LOCAL_MODE = false;
+
+let git_url = LOCAL_MODE ? MERCWAR_LOCAL_URL : MERCWAR_PRODUCTION_URL;
+
+// -----------------------------------------
+// 3. CLEAN URL JOINER (NO DOUBLE SLASHES)
+// -----------------------------------------
+function joinURL(base, path) {
+  return base.replace(/\/+$/, "") + "/" + path.replace(/^\/+/, "");
+}
+
+// -----------------------------------------
+// 4. BUILD FINAL REDIRECT URL
+// -----------------------------------------
+const clean_url =
+  joinURL(git_url, REDIRECT_TARGET_PATH) +
+  `?index=${repo_name}`;
+
+// -----------------------------------------
+// 5. REDIRECT
+// -----------------------------------------
+window.location.href = clean_url;
+</script>
+
+</body>
+</html>
+
+
