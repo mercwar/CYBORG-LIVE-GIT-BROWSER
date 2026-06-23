@@ -5,7 +5,7 @@
 
 ### 🤖 <i>PRIME EDITION FREE</i>
 
-<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/Constellation/index.html">
+<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
 <img 
     src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/cyborg-git.png" 
     alt="Mercwar Constellation Gateway" 
