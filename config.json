@@ -1,0 +1,8 @@
+{
+  "owner": "mercwar",
+  "repo": "mercwar",
+  "branch": "main",
+  "api_base": "https://api.github.com/repos",
+  "raw_base": "https://raw.githubusercontent.com",
+  "pages_base": "https://mercwar.github.io"
+}

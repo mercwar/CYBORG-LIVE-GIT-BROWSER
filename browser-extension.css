@@ -1,0 +1,180 @@
+/* =========================================================
+   FLOATING PANELS (RRU CYBORG UI)
+========================================================= */
+.ui-wrapper {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+  display: none;
+}
+
+.ui-window {
+  width: 320px;
+  background: rgba(10,10,10,0.92);
+  border: 1px solid var(--border-blue);
+  border-radius: var(--radius);
+  box-shadow: 0 0 22px var(--blue-soft), inset 0 0 12px #0009;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--text);
+  font-family: var(--mono);
+}
+
+/* =========================================================
+   PANEL HEADER
+========================================================= */
+.ui-header td {
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid var(--border-blue);
+  padding: 10px;
+}
+
+.ui-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--blue-strong);
+}
+
+.ui-close {
+  text-align: right;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ui-close:hover {
+  color: var(--blue-strong);
+}
+
+/* =========================================================
+   PANEL BODY
+========================================================= */
+.ui-body {
+  padding: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) #0006;
+}
+
+/* =========================================================
+   SCROLLBARS (MATCHES YOUR ORIGINAL THEME)
+========================================================= */
+.ui-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ui-body::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.ui-body::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 4px;
+}
+
+.ui-body::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-strong);
+}
+
+/* =========================================================
+   COMMAND PALETTE / FUTURE PANELS SUPPORT
+========================================================= */
+.ui-palette {
+  width: 420px;
+  background: rgba(5,5,5,0.92);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius);
+  box-shadow: 0 0 22px var(--gold-soft), inset 0 0 12px #0009;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--text);
+  font-family: var(--mono);
+  padding: 12px;
+}
+
+.ui-palette input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-gold);
+  background: #0a0a0a;
+  color: var(--gold-strong);
+  font-family: var(--mono);
+  margin-bottom: 10px;
+}
+
+.ui-palette-item {
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--muted);
+  transition: 120ms ease;
+}
+
+.ui-palette-item:hover {
+  background: var(--gold-soft);
+  color: var(--gold-strong);
+}
+
+/* =========================================================
+   NOTIFICATION PANEL
+========================================================= */
+.ui-notify {
+  width: 300px;
+  background: rgba(10,10,10,0.92);
+  border: 1px solid var(--border-blue);
+  border-radius: var(--radius);
+  box-shadow: 0 0 22px var(--blue-soft), inset 0 0 12px #0009;
+  padding: 12px;
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+.ui-notify-item {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-blue);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.ui-notify-item:last-child {
+  border-bottom: none;
+}
+
+/* =========================================================
+   BOOKMARKS / HISTORY LISTS
+========================================================= */
+.ui-list-item {
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--muted);
+  transition: 120ms ease;
+  font-family: var(--mono);
+}
+
+.ui-list-item:hover {
+  background: var(--blue-soft);
+  color: var(--blue-strong);
+}
+
+/* =========================================================
+   FUTURE MODULE SUPPORT
+========================================================= */
+.ui-section-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.ui-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-blue);
+  margin: 8px 0;
+}
