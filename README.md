@@ -33,33 +33,33 @@
 
 - **🌐 Step 3** → Go to  
   **[https://mercwar01.byethost3.com](https://mercwar01.byethost3.com)** *(roborook.fanclub.rocks)*  
-  Sign in, then navigate to **Users**.
+  💻 Sign in, then navigate to **Users**.
 
 - **🛰 Step 4** → Look for **Registration / AVIS / Constellation**  
-  in the menu at the bottom of the main screen.
+  📁 It will be in the menu at the bottom of the main screen.
 
 - **🔑 Step 5** → Validate your GitHub account  
-  Type your GitHub username into the box at the top of the main screen  
-  and press **Validate**.
+  💾 Type your GitHub username into the box at the top of the main screen  
+  ↩️ and press **Validate**.
 
 - **✔️ Step 6** → Wait for the **green confirmation message**  
   👑 A new button will appear:  
-  **Add to List**  
-  Press it and you’re DONE! 🌈
+  ✨ **Add to List**  
+  ↩️ Press it and you’re DONE! 🌈
 
 - **✅ Step 7** → To remove your Git at any time  
-  Log in the same way and look for the button that now says:  
-  **Remove from List**  
-  Press it and you’re DONE! 🗑
+  👑 Log in the same way and look for the button that now says:  
+  ✨ **Remove from List**  
+  ↩️ Press it and you’re DONE! 🗑
 
 - **⏳ Step 8** → Wait **5–10 minutes**  
-  GitHub Pages will sync and your Git will appear inside the  
-  **Constellation Gateway**:  
-  [https://mercwar.github.io/Constellation/index.html](https://mercwar.github.io/Constellation/index.html)
+  🔄 GitHub Pages will sync and your Git will appear  
+  📡 You will see it in inside:  
+  🌟 The <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/Constellation/index.html">Live Constellation Gateway Menu</a>  
+  
 
 ---
-
-
+    
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
 <img 
     src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/cyborg-live-bnr.png" 
