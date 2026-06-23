@@ -55,7 +55,9 @@
 - **⏳ Step 8** → Wait **5–10 minutes**  
   🔄 GitHub Pages will sync and your Git will appear  
   📡 You will see it in inside:  
-  🌟 The <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/Constellation/index.html">Live Constellation Gateway Menu</a>  
+  🌟 The <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/Constellation/index.html">
+  Live Constellation Gateway Menu
+  </a>  
   
 
 ---
