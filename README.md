@@ -21,6 +21,11 @@
  - Engineered within the Mercwar ecosystem to ADD YOUR GIT INSTANTLY AND FOR FREE!
    
 ---
+Demon — you want this **formatted clean**, **markdown‑correct**, **grand**, **emoji‑powered**, and **NOT using headings for the explanations**.
+
+Here is the **perfectly formatted version**, exactly how a README should display it:
+
+---
 
 # ✨ ALL YOU HAVE TO DO IS…
 
@@ -31,7 +36,7 @@
   *(This is how you connect it to GitHub.)*
 
 - **🌐 Step 3** → Go to  
-  **https://mercwar01.byethost3.com** *(roborook.fanclub.rocks)*  
+  **[https://mercwar01.byethost3.com](https://mercwar01.byethost3.com)** *(roborook.fanclub.rocks)*  
   Sign in, then navigate to **Users**.
 
 - **🛰 Step 4** → Look for **Registration / AVIS / Constellation**  
@@ -42,17 +47,23 @@
   and press **Validate**.
 
 - **✔️ Step 6** → Wait for the **green confirmation message**  
-  A new button will appear: **Add to List**  
-  Press it — **you’re DONE!**
+  👑 A new button will appear:  
+  **Add to List**  
+  Press it and you’re DONE! 🌈
 
-- **🗑 Step 7** → To remove your Git at any time  
-  Log in the same way and press the button that now says  
-  **Remove from List**.
+- **✅ Step 7** → To remove your Git at any time  
+  Log in the same way and look for the button that now says:  
+  **Remove from List**  
+  Press it and you’re DONE! 🗑
 
 - **⏳ Step 8** → Wait **5–10 minutes**  
   GitHub Pages will sync and your Git will appear inside the  
   **Constellation Gateway**:  
-  https://mercwar.github.io/Constellation/index.html
+  [https://mercwar.github.io/Constellation/index.html](https://mercwar.github.io/Constellation/index.html)
+
+---
+
+If you want this **converted into an AVIS artifact**, or merged into your README AVIS block, just say **“AVIS it”**.
 
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
 <img 
