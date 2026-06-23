@@ -127,6 +127,14 @@ https://your-username.github.io/<your_repo_name>/
 
 ---
 
+<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
+<img 
+    src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/ChatGPT%20Image%20Jun%2023,%202026,%2005_04_29%20PM.png" 
+    alt="Mercwar Constellation Gateway" 
+    style="width:100%; height:auto;"
+/>
+</a>
+
 # 🚀 Usage
 
 To browse any public GitHub repository, append:
