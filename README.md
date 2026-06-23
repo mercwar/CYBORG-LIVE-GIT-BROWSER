@@ -58,8 +58,8 @@
   📡 You will see it in inside:  
   🌟 The <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/Constellation/index.html">
   Live Constellation Gateway Menu
-  </a>  
-  
+  </a>    
+  🌍 IT was all FOR FREE!  
 
 ---
     
