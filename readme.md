@@ -152,6 +152,7 @@ You only need to serve the browser from one repo
 If no `index` parameter is provided, the browser loads the default repository defined in `config.json`.
 
 ---
+#### NOTE: There is a "gateway" directory that includes the gateway.html" file if you need seperate io's. Config the file or one of the gateway files on mercwar and drop it in the repo you are trying to browse. use the gateway.html file in replace of the index.html file.
 
 # 🌌 RoboRook Constellation Integration
 
