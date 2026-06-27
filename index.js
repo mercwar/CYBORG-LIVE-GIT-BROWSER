@@ -1,6 +1,140 @@
+/* ---------------------------------------------------------
+   PRISM SETUP (GLOBAL, SAFE, NO AUTO-HIGHLIGHT, NO PHP)
+--------------------------------------------------------- */
+window.Prism = window.Prism || {};
+Prism.manual = true; // prevent Prism from auto-highlighting <pre> in HTML
 // ---------------------------------------------------------
-// CONFIG (hydrated from config.json)
+// VIEW IN FRAME BUTTON (load source, not URL)
 // ---------------------------------------------------------
+const openFrameBtn = document.getElementById("openFrameBtn");
+const frameViewer = document.getElementById("frameViewer");
+openFrameBtn.addEventListener("click", () => {
+  if (!activePath) return;
+  if (!lastFetchedFileContent) return;
+
+  frameViewer.style.display = "block";
+  fileContentEl.style.display = "none";
+  emptyStateEl.style.display = "none";
+
+  let content = lastFetchedFileContent;
+
+  // Detect fragment (no root tags)
+  const lower = content.toLowerCase();
+  const isFragment = !(
+    lower.includes("<html") ||
+    lower.includes("<body") ||
+    lower.includes("<head") ||
+    lower.includes("<?xml") ||
+    lower.includes("<svg")
+  );
+
+  // Wrap fragment in full HTML shell
+  if (isFragment) {
+    content =
+      `<html><head><style>
+        html, body {
+          background: white !important;
+          margin: 0;
+          padding: 10px;
+          font-family: Arial;
+          overflow: auto;
+        }
+
+        /* SCROLLBAR THEME INSIDE IFRAME */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #020512; /* blue-darkest */
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #9be1f0; /* blue */
+          border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #fff; /* blue-strong */
+          box-shadow: 0 0 12px #9be1f044;
+        }
+      </style></head><body>` +
+      content +
+      `</body></html>`;
+  }
+
+  const blob = new Blob([content], { type: "text/html" });
+  const url = URL.createObjectURL(blob);
+
+  frameViewer.src = url;
+});
+
+
+function injectPrismDependencies() {
+  if (document.getElementById("prism-core-lib")) return;
+
+  const linkEl = document.createElement("link");
+  linkEl.rel = "stylesheet";
+  linkEl.href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css";
+  document.head.appendChild(linkEl);
+
+  const scriptEl = document.createElement("script");
+  scriptEl.id = "prism-core-lib";
+  scriptEl.src = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js";
+
+  scriptEl.onload = () => {
+    const langs = [
+      "javascript","typescript","json","markdown","python",
+      "css","c","cpp","bash","java","go","rust"
+    ];
+    langs.forEach(lang => {
+      const s = document.createElement("script");
+      s.src = `https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-${lang}.min.js`;
+      document.body.appendChild(s);
+    });
+
+    // BLOCK PHP COMPLETELY
+    delete Prism.languages.php;
+    Prism.hooks.add("before-highlight", env => {
+      if (env.language === "php") env.language = "none";
+    });
+  };
+
+  document.body.appendChild(scriptEl);
+}
+
+function getPrismLanguageClass(path) {
+  const lower = path.toLowerCase();
+
+  if (lower.endsWith(".js") || lower.endsWith(".jsx") || lower.endsWith(".cbord")) return "language-javascript";
+  if (lower.endsWith(".ts") || lower.endsWith(".tsx")) return "language-typescript";
+  if (lower.endsWith(".json")) return "language-json";
+  if (lower.endsWith(".md")) return "language-markdown";
+  if (lower.endsWith(".py")) return "language-python";
+  if (lower.endsWith(".html") || lower.endsWith(".xml")) return "language-markup";
+  if (lower.endsWith(".css")) return "language-css";
+  if (lower.endsWith(".sh") || lower.endsWith(".bash")) return "language-bash";
+  if (lower.endsWith(".c") || lower.endsWith(".h")) return "language-c";
+  if (lower.endsWith(".cpp") || lower.endsWith(".hpp")) return "language-cpp";
+
+  return "language-none";
+}
+
+function renderPrismCode(rawCode, path) {
+  const langClass = getPrismLanguageClass(path);
+  const safe = rawCode
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  return `
+    <pre class="${langClass}" style="margin:0; padding:1rem; background:transparent;">
+      <code class="${langClass}">${safe}</code>
+    </pre>
+  `;
+}
+
+/* ---------------------------------------------------------
+   CONFIG
+--------------------------------------------------------- */
 const CONFIG = {
   owner: "",
   repo: "",
@@ -10,9 +144,9 @@ const CONFIG = {
   pages_base: ""
 };
 
-// ---------------------------------------------------------
-// DOM REFS
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   DOM REFS
+--------------------------------------------------------- */
 const fileTreeEl = document.getElementById("fileTree");
 const currentPathEl = document.getElementById("currentPath");
 const fileContentEl = document.getElementById("fileContent");
@@ -33,9 +167,9 @@ let treeData = [];
 let flatFiles = [];
 let activePath = null;
 
-// ---------------------------------------------------------
-// STATUS BAR
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   STATUS BAR
+--------------------------------------------------------- */
 function setStatus(mode, text = "") {
   if (mode === "loading") {
     statusDotEl.classList.remove("error");
@@ -52,22 +186,22 @@ function setStatus(mode, text = "") {
   }
 }
 
-// ---------------------------------------------------------
-// TEXT FILE DETECTION
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   TEXT FILE DETECTION
+--------------------------------------------------------- */
 function isTextFile(path) {
   const lower = path.toLowerCase();
   const textExts = [
     ".avis",".cbord",".js",".ts",".jsx",".tsx",".json",".md",".txt",".html",".css",".scss",".sass",".less",
     ".yml",".yaml",".xml",".c",".h",".cpp",".hpp",".cc",".hh",".py",".rb",".go",".rs",".java",
-    ".cs",".php",".sh",".bat",".ps1",".toml",".ini",".cfg",".conf",".env"
+    ".cs",".sh",".bat",".ps1",".toml",".ini",".cfg",".conf",".env"
   ];
   return textExts.some(ext => lower.endsWith(ext));
 }
 
-// ---------------------------------------------------------
-// BUILD TREE
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   BUILD TREE
+--------------------------------------------------------- */
 function buildTreeFromPaths(files) {
   const root = { name: "/", path: "", type: "dir", children: [] };
 
@@ -128,9 +262,9 @@ function buildTreeFromPaths(files) {
   return root.children;
 }
 
-// ---------------------------------------------------------
-// RENDER TREE
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   RENDER TREE
+--------------------------------------------------------- */
 function renderTree(nodes, container, filter = "") {
   container.innerHTML = "";
 
@@ -202,9 +336,9 @@ function renderTree(nodes, container, filter = "") {
   nodes.forEach(node => renderNode(node, container));
 }
 
-// ---------------------------------------------------------
-// FETCH REPO TREE
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   FETCH REPO TREE
+--------------------------------------------------------- */
 async function fetchRepoTree() {
   setStatus("loading", "Fetching repo tree...");
   repoNameEl.textContent = `${CONFIG.owner}/${CONFIG.repo}`;
@@ -250,9 +384,9 @@ async function fetchRepoTree() {
   }
 }
 
-// ---------------------------------------------------------
-// FILE TYPE HELPERS
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   FILE TYPE HELPERS
+--------------------------------------------------------- */
 function isBinaryFile(path) {
   const lower = path.toLowerCase();
   const binaryExts = [
@@ -267,11 +401,15 @@ function isImageFile(path) {
   return [".png",".jpg",".jpeg",".gif",".bmp",".webp",".svg"].some(ext => lower.endsWith(ext));
 }
 
-// ---------------------------------------------------------
-// SELECT FILE
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   SELECT FILE (PRISM ENABLED)
+--------------------------------------------------------- */
 async function selectFile(path) {
   activePath = path;
+
+  // Reset iframe on every file select
+  frameViewer.style.display = "none";
+  frameViewer.src = "";
 
   const encodedRepo = encodeURIComponent(CONFIG.repo);
   const rawPathEncoded = path ? path.split("/").map(encodeURIComponent).join("/") : "";
@@ -296,12 +434,31 @@ async function selectFile(path) {
     fileMetaEl.textContent = "";
     fileContentEl.style.display = "none";
     emptyStateEl.style.display = "flex";
+    openFrameBtn.style.display = "none";
     setStatus("ready", "Directory selected");
     return;
   }
 
   const rawURL = `${CONFIG.raw_base}/${CONFIG.owner}/${CONFIG.repo}/${CONFIG.branch}/${rawPathEncoded}`;
 
+  /* ---------------------------------------------------------
+     FRAME-SAFE FILE TYPES
+     These will open in the iframe when VIEW IN FRAME is clicked
+  --------------------------------------------------------- */
+  const frameSafe = [
+    ".html",".htm",".txt",".md",".json",".xml",".svg",
+    ".png",".jpg",".jpeg",".gif",".webp"
+  ];
+
+  const lower = path.toLowerCase();
+  const isFrameSafe = frameSafe.some(ext => lower.endsWith(ext));
+
+  // Show or hide the frame button
+  openFrameBtn.style.display = isFrameSafe ? "inline-block" : "none";
+
+  /* ---------------------------------------------------------
+     IMAGE VIEWER (native)
+  --------------------------------------------------------- */
   if (isImageFile(path)) {
     fileTypeBadgeEl.textContent = "Image";
     fileContentEl.innerHTML = `<img src="${rawURL}" style="max-width:100%;border-radius:6px;">`;
@@ -311,6 +468,9 @@ async function selectFile(path) {
     return;
   }
 
+  /* ---------------------------------------------------------
+     BINARY FILES
+  --------------------------------------------------------- */
   if (isBinaryFile(path)) {
     fileTypeBadgeEl.textContent = "Binary file";
     fileContentEl.style.display = "none";
@@ -324,6 +484,9 @@ async function selectFile(path) {
     return;
   }
 
+  /* ---------------------------------------------------------
+     TEXT FILES (Prism)
+  --------------------------------------------------------- */
   fileTypeBadgeEl.textContent = isTextFile(path) ? "Text file" : "Plain text (unsupported ext)";
   fileMetaEl.textContent = `${file.size || 0} bytes • sha ${file.sha.slice(0, 7)}`;
 
@@ -332,8 +495,15 @@ async function selectFile(path) {
   try {
     const res = await fetch(rawURL);
     if (!res.ok) throw new Error("Failed to fetch file");
-    const text = await res.text();
-    fileContentEl.textContent = text;
+    const rawCode = await res.text();
+lastFetchedFileContent = rawCode;
+
+    fileContentEl.innerHTML = renderPrismCode(rawCode, path);
+
+    if (window.Prism) {
+      Prism.highlightAllUnder(fileContentEl);
+    }
+
     fileContentEl.style.display = "block";
     emptyStateEl.style.display = "none";
     setStatus("ready", "File loaded");
@@ -346,9 +516,10 @@ async function selectFile(path) {
   }
 }
 
-// ---------------------------------------------------------
-// OPEN BUTTONS
-// ---------------------------------------------------------
+
+/* ---------------------------------------------------------
+   OPEN BUTTONS
+--------------------------------------------------------- */
 openGithubBtn.addEventListener("click", () => {
   if (!activePath) {
     window.open(`https://github.com/${CONFIG.owner}/${CONFIG.repo}`, "_blank");
@@ -369,17 +540,17 @@ openRawBtn.addEventListener("click", () => {
   );
 });
 
-// ---------------------------------------------------------
-// SEARCH
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   SEARCH
+--------------------------------------------------------- */
 searchInput.addEventListener("input", () => {
   const filter = searchInput.value.trim();
   renderTree(treeData, fileTreeEl, filter);
 });
 
-// ---------------------------------------------------------
-// KEYBOARD SHORTCUTS
-// ---------------------------------------------------------
+/* ---------------------------------------------------------
+   KEYBOARD SHORTCUTS
+--------------------------------------------------------- */
 window.addEventListener("keydown", (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
     e.preventDefault();
@@ -388,6 +559,9 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
+/* ---------------------------------------------------------
+   HYDRATE CONFIG
+--------------------------------------------------------- */
 // ---------------------------------------------------------
 // HYDRATE CONFIG FROM JSON + APPLY ?index= OVERRIDE
 // ---------------------------------------------------------
@@ -421,6 +595,7 @@ async function hydrateConfigFromRoot() {
 // ---------------------------------------------------------
 // STARTUP
 // ---------------------------------------------------------
+injectPrismDependencies();
 hydrateConfigFromRoot();
 
 function collapseAllDropdowns() {
@@ -434,6 +609,7 @@ function collapseAllDropdowns() {
     }
   });
 }
+
 function expandAllDropdowns() {
   document.querySelectorAll(".tree-children").forEach(el => {
     el.style.display = "";
@@ -445,3 +621,14 @@ function expandAllDropdowns() {
     }
   });
 }
+function isFragmentHTML(content) {
+  const lower = content.toLowerCase();
+  return !(
+    lower.includes("<html") ||
+    lower.includes("<body") ||
+    lower.includes("<head") ||
+    lower.includes("<?xml") ||
+    lower.includes("<svg")
+  );
+}
+

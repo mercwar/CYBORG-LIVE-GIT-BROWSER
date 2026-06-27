@@ -13,10 +13,16 @@
     window.REPO_NAME = indexParam && indexParam.trim() !== "" ? indexParam : null;
 
     // Load CSS
-    const css = document.createElement("link");
+    let css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = "index.css?v=151";
+    css.href = "index.css?v=162";
     document.head.appendChild(css);
+
+	css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "index2.css?v=162";
+    document.head.appendChild(css);
+
 
     // Temporary title until JSON loads
     document.title = "Mercwar Cyborg Repo-Browser";
@@ -94,6 +100,7 @@
         </div>
 
         <div class="main-actions">
+		<button class="btn rk-btn" id="openFrameBtn" type="button">VIEW HTML</button>
           <button class="btn rk-btn" id="openRawBtn" type="button">RAW</button>
           <button class="btn rk-btn-primary" id="openGithubBtn">OPEN IN GITHUB</button>
         </div>
@@ -111,14 +118,16 @@
         </div>
 
         <div class="viewer-body">
-          <pre class="viewer-pre" id="fileContent" style="display:none;"></pre>
+          <div class="viewer-pre" id="fileContent"></div>
+<iframe id="frameViewer"></iframe>
 
-          <div class="viewer-empty" id="emptyState">
-            <div>
-              <div style="margin-bottom:6px;">Select a file from the left to inspect its contents.</div>
-              <div style="font-size:11px;color:#7b8190;">Nexus index wired as a <span>repo file browser</span>.</div>
-            </div>
-          </div>
+<div class="viewer-empty" id="emptyState">
+  <div class="viewer-empty-inner">
+    <div class="viewer-empty-title">Select a file from the left to inspect its contents.</div>
+    <div class="viewer-empty-sub">Nexus index wired as a <span>repo file browser</span>.</div>
+  </div>
+</div>
+
 
           <div class="status-bar rru-panel" id="statusBar">
             <div class="status-dot" id="statusDot"></div>
@@ -147,7 +156,7 @@
     </div>
   </div>
 
-  <script src="index.js?v=22"></script>
-
+  <script src="index.js?v=34"></script>
+ 
 </body>
 </html>
