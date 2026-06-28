@@ -198,6 +198,16 @@ Built for the **Mercwar ecosystem**, it operates entirely in the browser using t
 
 ---
 
+
+<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER">
+  
+<img 
+    src="image_2026-06-27_215947720.png" 
+    alt="Mercwar Constellation" 
+    style="width:100%; height:auto;"
+/>
+</a>
+
 # 🛠 Technology Stack
 
 | Component | Purpose |
