@@ -15,12 +15,12 @@
     // Load CSS
     let css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = "index.css?v=162";
+    css.href = "index.css?v=167";
     document.head.appendChild(css);
 
 	css = document.createElement("link");
     css.rel = "stylesheet";
-    css.href = "index2.css?v=162";
+    css.href = "index2.css?v=167";
     document.head.appendChild(css);
 
 
@@ -92,19 +92,35 @@
 
     <!-- MAIN PANEL -->
     <main class="main">
-
-      <div class="main-header rru-panel">
-        <div class="main-path">
-          <span>Path:</span>
-          <strong id="currentPath">/</strong>
-        </div>
-
-        <div class="main-actions">
-		<button class="btn rk-btn" id="openFrameBtn" type="button">VIEW HTML</button>
-          <button class="btn rk-btn" id="openRawBtn" type="button">RAW</button>
-          <button class="btn rk-btn-primary" id="openGithubBtn">OPEN IN GITHUB</button>
-        </div>
+<table class="main-header rru-panel">
+  <tr>
+    <!-- LEFT: PATH -->
+    <td class="header-left">
+      <div class="main-path">
+        <span>Path:</span>
+        <strong id="currentPath">/</strong>
       </div>
+    </td>
+
+    <!-- RIGHT: VIEW HTML + STATUS + BUTTONS -->
+    <td class="header-right">
+      <button class="btn rk-btn" id="openFrameBtn" type="button">VIEW HTML</button>
+
+      <div class="main-actions">
+        <div class="status-bar rru-panel" id="statusBar">
+          <div class="status-dot" id="statusDot"></div>
+          <div class="status-label" id="statusLabel">READY</div>
+          <div class="status-text" id="statusText"></div>
+        </div>
+
+        <button class="btn rk-btn" id="openRawBtn" type="button">RAW</button>
+        <button class="btn rk-btn-primary" id="openGithubBtn" type="button">OPEN IN GITHUB</button>
+      </div>
+    </td>
+  </tr>
+</table>
+
+
 
       <section class="viewer rru-panel">
 
@@ -125,15 +141,13 @@
   <div class="viewer-empty-inner">
     <div class="viewer-empty-title">Select a file from the left to inspect its contents.</div>
     <div class="viewer-empty-sub">Nexus index wired as a <span>repo file browser</span>.</div>
+
   </div>
+  
+
 </div>
 
 
-          <div class="status-bar rru-panel" id="statusBar">
-            <div class="status-dot" id="statusDot"></div>
-            <div class="status-label" id="statusLabel">READY</div>
-            <div class="status-text" id="statusText"></div>
-          </div>
         </div>
 
       </section>
