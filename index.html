@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Primary SEO -->
+<meta name="title" content="Mercwar Cyborg Live Repo Browser">
+<meta name="description" content="Cyborg Live Repo Browser — a fast, interactive interface for exploring GitHub repositories with live file previews, clean navigation, and instant raw content access.">
+<meta name="keywords" content="cyborg, repo browser, github viewer, repository explorer, file browser, mercwar, code viewer, developer tools">
+<meta name="author" content="Mercwar">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Cyborg Live Repo Browser">
+<meta property="og:description" content="Explore GitHub repositories live with fast navigation, raw file previews, and a clean UI.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:image" content="cyborg-preview.png">
+<meta property="og:site_name" content="Cyborg Repo Browser">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cyborg Live Repo Browser">
+<meta name="twitter:description" content="Live browser for repository files with fast previews and clean navigation.">
+<meta name="twitter:image" content="cyborg-preview.png">
+
+<!-- Performance & SEO Enhancers -->
+<link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+
+
+
+
 
    <script>
     // Read ?index= from URL and use it as the repo name
+  // Read ?index= from URL
     const params = new URLSearchParams(window.location.search);
-    let repo_name = params.get("index");
-	
-	
-	
-	
-    // Default if missing or empty
-    if (!repo_name || repo_name.trim() === "") {
-      repo_name = "mercwar";
-    }
+    const indexParam = params.get("index");
 
+    // Expose to index.js (null means "use JSON fallback")
+    window.REPO_NAME = indexParam && indexParam.trim() !== "" ? indexParam : null;
 
+  
     // Build the stylesheet link dynamically
 	
     let css = document.createElement("link");    
 	css.rel = "stylesheet";
-    css.href = "index.css?v=319";
+    css.href = "index.css?v=329";
 	document.head.appendChild(css);
 
      css = document.createElement("link");    
 	css.rel = "stylesheet";
-    css.href = "index1.css?v=319";
+    css.href = "index1.css?v=329";
 	document.head.appendChild(css);
 
 	
@@ -185,7 +211,7 @@
   </div>
   
 
-<script src="index.js?v=259"></script>
+<script src="index.js?v=260"></script>
 
 </body>
 </html>
