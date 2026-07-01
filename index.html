@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script>
-    // Read ?index= from URL
+   <script>
+    // Read ?index= from URL and use it as the repo name
     const params = new URLSearchParams(window.location.search);
-    const indexParam = params.get("index");
-
-    // Expose to index.js (null means "use JSON fallback")
-    window.REPO_NAME = indexParam && indexParam.trim() !== "" ? indexParam : null;
-
-    // Load CSS
-    let css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "index.css?v=167";
-    document.head.appendChild(css);
-
-	css = document.createElement("link");
-    css.rel = "stylesheet";
-    css.href = "index2.css?v=167";
-    document.head.appendChild(css);
+    let repo_name = params.get("index");
+	
+	
+	
+	
+    // Default if missing or empty
+    if (!repo_name || repo_name.trim() === "") {
+      repo_name = "mercwar";
+    }
 
 
-    // Temporary title until JSON loads
-    document.title = "Mercwar Cyborg Repo-Browser";
+    // Build the stylesheet link dynamically
+	
+    let css = document.createElement("link");    
+	css.rel = "stylesheet";
+    css.href = "index.css?v=319";
+	document.head.appendChild(css);
+
+     css = document.createElement("link");    
+	css.rel = "stylesheet";
+    css.href = "index1.css?v=319";
+	document.head.appendChild(css);
+
+	
+	document.title = `Mercwar Cyborg ${repo_name} Repo-Browser`;
+
   </script>
 
 </head>
@@ -33,18 +41,17 @@
 
   <!-- TOP BANNER -->
   <div class="top-banner">
-  <a href="#target-destination"> <img src="banner-new.png?v=1" alt="Banner" class="top-banner-img"></a>
-
-<!-- The Target Location -->
-
+    <img src="banner-new.png?v=1" alt="Banner" class="top-banner-img">
   </div>
-<div id="target-destination"></div>
-   
+
   <!-- HEADER -->
   <header class="rru-header">
     <div class="brand">
       <div class="brand-badge">MW</div>
-      <span><strong id="repoNameHeader">loading...</strong></span>
+      <span><strong><script>document.write(repo_name); </script></strong></span>
+
+	  <div id="repoNameHeader"></div>
+<div id="legalRepoName"></div>
     </div>
 
     <div class="repo-meta rru-panel rru-flex rru-gap">
@@ -67,60 +74,58 @@
     <!-- SIDEBAR -->
     <aside class="sidebar rru-panel">
 
+      <!-- GATEWAY IMAGE -->
       <div class="gateway-container">
         <a target="_self"
            href="https://mercwar.github.io/Constellation/index.html"
            class="gateway-link">
-          <img src="mercwar.png?v=2" alt="Mercwar Constellation" class="gateway-banner" />
+          <img
+            src="mercwar.png?v=1"
+            alt="Mercwar Constellation"
+            class="gateway-banner"
+          />
         </a>
       </div>
 
-      <div class="sidebar-header" style="display:flex;align-items:center;justify-content:space-between;">
-        <span>Repository <strong>Files</strong></span>
-        <button class="btn rk-btn" id="collapseBtn" type="button" onclick="collapseAllDropdowns();">
-          Collapse
-        </button>
-      </div>
+<div class="sidebar-header" style="display:flex;align-items:center;justify-content:space-between;">
+    <span>Repository <strong>Files</strong></span>
+
+<button class="btn rk-btn" id="collapseBtn" type="button" onclick="collapseAllDropdowns();">
+    Collapse
+</button>
+
+</div>
+
 
       <div class="sidebar-search">
         <input id="searchInput" type="text" placeholder="Filter files (Ctrl+K)">
       </div>
 
+      <!-- SCROLLING FILE TREE -->
       <div class="file-tree" id="fileTree"></div>
 
     </aside>
 
     <!-- MAIN PANEL -->
     <main class="main">
-<table class="main-header rru-panel">
-  <tr>
-    <!-- LEFT: PATH -->
-    <td class="header-left">
-      <div class="main-path">
-        <span>Path:</span>
-        <strong id="currentPath">/</strong>
-      </div>
-    </td>
 
-    <!-- RIGHT: VIEW HTML + STATUS + BUTTONS -->
-    <td class="header-right">
-      <button class="btn rk-btn" id="openFrameBtn" type="button">VIEW HTML</button>
-
-      <div class="main-actions">
-        <div class="status-bar rru-panel" id="statusBar">
-          <div class="status-dot" id="statusDot"></div>
-          <div class="status-label" id="statusLabel">READY</div>
-          <div class="status-text" id="statusText"></div>
+      <div class="main-header rru-panel">
+        <div class="main-path">
+          <span>Path:</span>
+          <strong id="currentPath">/</strong>
         </div>
 
-        <button class="btn rk-btn" id="openRawBtn" type="button">RAW</button>
-        <button class="btn rk-btn-primary" id="openGithubBtn" type="button">OPEN IN GITHUB</button>
+        <div class="main-actions">
+                  <button class="btn rk-btn" id="openFrameBtn">VIEW HTML</button>
+
+                  <div class="main-actions">
+
+
+                    <button class="btn rk-btn" id="openRawBtn">RAW</button>
+                    <button class="btn rk-btn-primary" id="openGithubBtn">OPEN IN GITHUB</button>
+                  </div>
+        </div>
       </div>
-    </td>
-  </tr>
-</table>
-
-
 
       <section class="viewer rru-panel">
 
@@ -134,20 +139,21 @@
         </div>
 
         <div class="viewer-body">
-          <div class="viewer-pre" id="fileContent"></div>
-<iframe id="frameViewer"></iframe>
+          <pre class="viewer-pre" id="fileContent" style="display:none;"></pre>
+  <iframe id="frameViewer"></iframe>
 
-<div class="viewer-empty" id="emptyState">
-  <div class="viewer-empty-inner">
-    <div class="viewer-empty-title">Select a file from the left to inspect its contents.</div>
-    <div class="viewer-empty-sub">Nexus index wired as a <span>repo file browser</span>.</div>
+          <div class="viewer-empty" id="emptyState">
+            <div>
+              <div style="margin-bottom:6px;">Select a file from the left to inspect its contents.</div>
+              <div style="font-size:11px;color:#7b8190;">Nexus index wired as a <span>repo file browser</span>.</div>
+            </div>
+          </div>
 
-  </div>
-  
-
-</div>
-
-
+                    <div class="status-bar rru-panel" id="statusBar">
+                      <div class="status-dot" id="statusDot"></div>
+                      <div class="status-label" id="statusLabel">READY</div>
+                      <div class="status-text" id="statusText"></div>
+                    </div>
         </div>
 
       </section>
@@ -156,21 +162,30 @@
 
   </div>
 
-  <!-- LEGAL SECTION -->
+  <!-- LEGAL SECTION AT BOTTOM -->
   <div class="legal-section rru-panel legal-bottom">
-    <div class="legal-title">MERCWAR • <span id="legalRepoName">loading...</span> LEGAL</div>
+    <div class="legal-title">MERCWAR • <script>document.write(repo_name); </script> LEGAL</div>
 
     <div class="legal-body">
       This interface, its code structures, rendered assets, and operational logic constitute
-      a protected system under the Mercwar Sovereign Framework...
+      a protected system under the Mercwar Sovereign Framework. Unauthorized duplication,
+      extraction, modification, or redistribution of any component of this gateway — including
+      but not limited to source files, compiled assets, AVIS documents, CBORD structures,
+      or Nexus‑linked metadata — is strictly prohibited.
+
+      By accessing this system, you acknowledge and accept the operational terms governing
+      the Nexus Repo Browser, including automated logging, integrity verification, and
+      AVIS‑compliant audit trails.
+
+
     </div>
 
-    <div class="legal-footer">
-      All rights reserved. © Mercwar AI Systems • AVIS Cyborg RRU
-    </div>
+    <div class="legal-footer">  All rights reserved.  
+      © Mercwar AI Systems * AVIS Cyborg RRU</div>
   </div>
+  
 
-  <script src="index.js?v=34"></script>
- 
+<script src="index.js?v=259"></script>
+
 </body>
 </html>
