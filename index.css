@@ -46,30 +46,46 @@ box-sizing:border-box
 
 /* GLOBAL SCROLLBAR CONFIG */
 html::-webkit-scrollbar,
-body::-webkit-scrollbar,
 .file-tree::-webkit-scrollbar {
-width:6px!important;
-height:6px!important
+  width: 6px !important;
+  height: 6px !important;
 }
 
 html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track,
 .file-tree::-webkit-scrollbar-track {
-background:transparent!important
+  background: transparent !important;
 }
 
 html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb,
 .file-tree::-webkit-scrollbar-thumb {
-background:rgba(155, 225, 240, 0.25)!important;
-border-radius:10px!important
+  background: rgba(155, 225, 240, 0.25) !important;
+  border-radius: 10px !important;
 }
 
 html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover,
 .file-tree::-webkit-scrollbar-thumb:hover {
-background:rgba(155, 225, 240, 0.45)!important
+  background: rgba(155, 225, 240, 0.45) !important;
 }
+
+/* SEPARATE YELLOW BODY SCROLLBAR */
+body::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 235, 59, 1) !important; /* solid yellow */
+  border-radius: 10px !important;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 1) !important; /* darker yellow on hover */
+}
+
 
 *,::before,::after {
 box-sizing:border-box
