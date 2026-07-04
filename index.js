@@ -104,7 +104,7 @@ function injectPrismDependencies() {
 function getPrismLanguageClass(path) {
   const lower = path.toLowerCase();
 
-  if (lower.endsWith(".js") || lower.endsWith(".jsx") || lower.endsWith(".cbord")) return "language-javascript";
+  if (lower.endsWith(".js") || lower.endsWith(".jsx")) return "language-javascript";
   if (lower.endsWith(".ts") || lower.endsWith(".tsx")) return "language-typescript";
   if (lower.endsWith(".json")) return "language-json";
   if (lower.endsWith(".md")) return "language-markdown";
@@ -115,8 +115,18 @@ function getPrismLanguageClass(path) {
   if (lower.endsWith(".c") || lower.endsWith(".h")) return "language-c";
   if (lower.endsWith(".cpp") || lower.endsWith(".hpp")) return "language-cpp";
 
+  // NEW: Java support
+  if (lower.endsWith(".java")) return "language-java";
+
+  // NEW: ASM support (map to clike or custom)
+  if (lower.endsWith(".asm")) return "language-clike"; // Prism doesn’t have native ASM, clike is closest
+
+  // NEW: PHP support
+  if (lower.endsWith(".php")) return "language-php";
+
   return "language-none";
 }
+
 
 function renderPrismCode(rawCode, path) {
   const langClass = getPrismLanguageClass(path);
