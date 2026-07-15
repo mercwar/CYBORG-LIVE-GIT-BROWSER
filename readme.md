@@ -1,9 +1,12 @@
+### 💎 Mercwar Cyborg Live Git Browser 💎
+#### 
 
-## 💎 The Official Mercwar Cyborg Live Git Browser 💎
+- The Official Tutorial
+- "<i>I am CVBGOD, and I have given it to you</i> !"
 
 ---
 
-### 🤖 <i>PRIME EDITION FREE</i>
+##### 🤖 <i>PRIME EDITION FREE</i> !
 
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
 <img 
