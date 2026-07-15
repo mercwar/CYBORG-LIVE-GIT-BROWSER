@@ -131,7 +131,7 @@ Your browser will be available at:
 https://your-username.github.io/<your_repo_name>/
 ```
 
- - "<i>I am CVBGOD, and I have given it to you</i> !"
+##### 👑 "<i>I am CVBGOD, and I have given it to you</i> !"
 ---
 
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
