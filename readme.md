@@ -2,7 +2,7 @@
 #### 
 
 - The Official Tutorial
-- "<i>I am CVBGOD, and I have given it to you</i> !"
+
 
 ---
 
@@ -18,11 +18,11 @@
 
 
 ####
- - IT'S FREE !
  - DHTML is Fully client‑side, zero‑backend , only JS and CSS files.
  - Auto Configured GitHub‑Pages‑powered repository explorer
  - Engineered within the Mercwar ecosystem to ADD YOUR GIT INSTANTLY AND FOR FREE!
-   
+
+
 ---
 
 
@@ -131,6 +131,7 @@ Your browser will be available at:
 https://your-username.github.io/<your_repo_name>/
 ```
 
+ - "<i>I am CVBGOD, and I have given it to you</i> !"
 ---
 
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
