@@ -81,7 +81,7 @@
 ## 1️⃣ Download the Browser  
 
 - [Click Here](https://github.com/mercwar/CYBORG-LIVE-GIT-BROWSER/releases/tag/CYLB) to Download the ZIP archive from this repository.
-- Extract it anywhere on your apache or web host.
+- Extract it anywhere in your github.io, Apache or Hosted Web Server.
 
 ## 2️⃣ Configure `config.json`  
 Update the file with your GitHub information:
