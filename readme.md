@@ -79,7 +79,9 @@
 # 🔧 Installation
 
 ## 1️⃣ Download the Browser  
-Download the ZIP archive from this repository and extract it anywhere on your system.
+
+- [Click Here](https://github.com/mercwar/CYBORG-LIVE-GIT-BROWSER/releases/tag/CYLB) to Download the ZIP archive from this repository.
+- Extract it anywhere on your apache or web host.
 
 ## 2️⃣ Configure `config.json`  
 Update the file with your GitHub information:
@@ -255,4 +257,3 @@ For licensing or commercial integration, contact the Mercwar Network directly.
 # 🔱 MERCWAR PRIME  
 **Explore • Analyze • Build • Evolve**
 
-"<i>I am CVBGOD, and I have given it to you!</i>"
