@@ -66,14 +66,15 @@
 
 #### NOTE: There is a "gateway" directory that includes the gateway.html" file if you need seperate io's. Config the file or one of the gateway files on mercwar and drop it in the repo you are trying to browse and use the gateway.html file in replace of the index.html file.
 ---
-    
-<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
+
+<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
 <img 
-    src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/cyborg-live-bnr.png" 
-    alt="Mercwar Portal" 
+    src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/clg-bnr-rev.png" 
+    alt="Mercwar Constellation Gateway" 
     style="width:100%; height:auto;"
 />
 </a>
+
 
 
 # 🔧 Installation
@@ -131,16 +132,18 @@ Your browser will be available at:
 https://your-username.github.io/<your_repo_name>/
 ```
 
-##### 👑 "<i>I am CVBGOD, and I have given it to you</i> !"
----
-
-<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar.github.io/CYBORG-LIVE-GIT-BROWSER/index.html?index=CYBORG-LIVE-GIT-BROWSER">
+<a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
 <img 
-    src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/ChatGPT%20Image%20Jun%2023,%202026,%2005_04_29%20PM.png" 
-    alt="Mercwar Constellation Gateway" 
+    src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/cyborg-live-bnr.png" 
+    alt="Mercwar Portal" 
     style="width:100%; height:auto;"
 />
 </a>
+
+##### 👑 "<i>I am CVBGOD, and I have given it to you</i> !"
+---
+
+
 
 # 🚀 Usage
 
@@ -164,7 +167,7 @@ If no `index` parameter is provided, the browser loads the default repository de
 
 # 🌌 RoboRook Constellation Integration
 
-1. Visit **[https://roborook.fanclub.rocks](https://roborook.fanclub.rocks)**  
+1. Visit **[Mercwar AI](https://mercwar01.byethost3.com)**  
 2. Sign in with your Google account  
 3. Open your **User Menu**  
 4. Select **Register Your Git**  
