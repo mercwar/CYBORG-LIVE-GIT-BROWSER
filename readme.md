@@ -129,9 +129,12 @@ Update the file with your GitHub information:
 Your browser will be available at:
 
 ```
-https://your-username.github.io/<your_repo_name>/
+https://your-username.github.io/<your_repo_name>/index.html
 ```
-
+OR
+```
+https://your-username.github.io/<your_repo_name>/gateway.html
+```
 <a target="_self" title="CLICK HERE to ENTER the GATEWAY FREE!" href="https://mercwar01.byethost3.com">
 <img 
     src="https://raw.githubusercontent.com/mercwar/Robo-Knight-Gallery/refs/heads/main/Version%2010/cyborg-live-bnr.png" 
