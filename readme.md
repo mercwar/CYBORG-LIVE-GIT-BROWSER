@@ -35,7 +35,7 @@
   *(This is how you connect it to GitHub.)*
 
 - **🌐 Step 3** → Go to:  <a target="_self" title="Free Mercwar Portal!" href="https://mercwar01.byethost3.com">
-  roborook.fanclub.rocks
+  Mercwar AI
   </a>  
   💻 Sign in, and then navigate to the '<i>**Users**</i>' Menu on the left with the Glowig orbs.
 
